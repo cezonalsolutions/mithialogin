@@ -1,0 +1,283 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  font-family: 'Fredoka', sans-serif;
+  background: #ffffff;
+}
+
+/* BACK BUTTON */
+.login-back-btn {
+  position: absolute;
+  top: 35px;
+  left: 20px;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.login-back-btn svg {
+  width: 22px;
+  height: 22px;
+  stroke: #222;
+  stroke-width: 2.5;
+  fill: none;
+}
+
+
+
+
+.login-image-area {
+  position: absolute;
+  top: 210px;
+  left: 0;
+  right: 0;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: visible;
+}
+
+.login-center-image {
+  display: block;
+  width: 240px;
+  max-width: 80vw;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+
+/* BOTTOM LOGIN BOX */
+.login-bottom-box {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 28px 28px 0 0;
+  box-shadow: 0 -6px 35px rgba(0,0,0,0.08);
+  padding: 28px 24px calc(30px + env(safe-area-inset-bottom));
+  z-index: 10;
+}
+
+.login-subtitle {
+  font-size: 17px;
+  font-weight: 600;
+  color: #222;
+  margin: 0 0 20px;
+}
+
+/* MOBILE INPUT */
+.mobile-input-box {
+  display: flex;
+  align-items: center;
+  height: 54px;
+  width: 100%;
+  border: 1.5px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 0 15px;
+}
+
+.mobile-input-box:focus-within {
+  border-color: #ff59ae;
+}
+
+.country-code {
+  font-size: 16px;
+  font-weight: 600;
+  color: #222;
+  padding-right: 12px;
+  border-right: 1px solid #ddd;
+}
+
+.mobile-input {
+  flex: 1;
+  min-width: 0;
+  padding-left: 12px;
+  border: none;
+  outline: none;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 16px;
+  background: transparent;
+}
+
+.login-error {
+  font-size: 13px;
+  color: #d32f2f;
+  margin-top: 8px;
+}
+
+.login-error:empty {
+  display: none;
+}
+
+/* TERMS TEXT */
+.login-terms {
+  margin: 18px 0 0;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #888888;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.login-terms a {
+  color: #ff59ae;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* NEXT BUTTON */
+.login-next-btn {
+  width: 100%;
+  height: 54px;
+  margin-top: 14px;
+  border: none;
+  border-radius: 12px;
+  background: #ff59ae;
+  color: #ffffff;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login-next-btn:active {
+  transform: scale(0.98);
+}
+
+@media (max-height: 600px) {
+  .login-image-area {
+    top: 80px;
+    bottom: 310px;
+  }
+
+  .login-center-image {
+    width: 170px;
+  }
+
+  .login-bottom-box {
+    padding-top: 20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACK BUTTON -->
+<button class="login-back-btn"
+        onclick="window.history.back()"
+        aria-label="Go back">
+  <svg viewBox="0 0 24 24">
+    <path d="M15 18L9 12L15 6"
+          stroke-linecap="round"
+          stroke-linejoin="round"/>
+  </svg>
+</button>
+
+<!-- TOP IMAGE -->
+<div class="login-image-area">
+  <img src="subbu.webp"
+       class="login-center-image"
+       alt="MITHAI">
+</div>
+
+<!-- BOTTOM LOGIN BOX -->
+<div class="login-bottom-box">
+
+  <form id="loginForm">
+
+    <p class="login-subtitle">
+      Enter your mobile number to continue
+    </p>
+
+    <div class="mobile-input-box">
+      <span class="country-code">+91</span>
+
+      <input
+        type="tel"
+        inputmode="numeric"
+        autocomplete="tel-national"
+        maxlength="10"
+        id="mobileNumber"
+        class="mobile-input"
+        placeholder="Mobile number"
+        required>
+    </div>
+
+    <div class="login-error" id="loginError"></div>
+
+    <!-- TERMS ABOVE NEXT BUTTON -->
+    <p class="login-terms">
+      By continuing, you agree to our
+      <a href="terms.html">Terms of Service</a>
+      and
+      <a href="privacy.html">Privacy Policy</a>
+    </p>
+
+    <button class="login-next-btn" type="submit">
+      Next
+    </button>
+
+  </form>
+
+</div>
+
+<script>
+const form = document.getElementById("loginForm");
+const mobileInput = document.getElementById("mobileNumber");
+const error = document.getElementById("loginError");
+
+mobileInput.addEventListener("input", () => {
+  mobileInput.value = mobileInput.value.replace(/\D/g, "").slice(0, 10);
+  error.textContent = "";
+});
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const mobile = mobileInput.value.trim();
+
+  if (!/^[6-9]\d{9}$/.test(mobile)) {
+    error.textContent = "Enter a valid 10-digit mobile number";
+    return;
+  }
+
+  error.textContent = "";
+
+  // Connect OTP API or next page here.
+});
+</script>
+
+</body>
+</html>
