@@ -4,280 +4,262 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>MITHAI - Profile</title>
 
 <style>
-* {
-  box-sizing: border-box;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-height: 100%;
-  font-family: 'Fredoka', sans-serif;
-  background: #ffffff;
-}
-
-/* BACK BUTTON */
-.login-back-btn {
-  position: absolute;
-  top: 35px;
-  left: 20px;
-  width: 42px;
-  height: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f5f5f5;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 100;
-}
-
-.login-back-btn svg {
-  width: 22px;
-  height: 22px;
-  stroke: #222;
-  stroke-width: 2.5;
-  fill: none;
-}
-
-
-
-
-.login-image-area {
-  position: absolute;
-  top: 210px;
+/* FIXED HEADER */
+.mithai-profile-header {
+  position: fixed;
+  top: 0;
   left: 0;
-  right: 0;
   width: 100%;
+  height: 110px;
+  padding: 35px 18px 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #ffffff;
+  border-bottom: 1px solid #e0e5ec;
+  box-sizing: border-box;
+  z-index: 9999;
+}
 
+.mithai-profile-back {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #dce3ed;
+  border-radius: 50%;
+  background: white;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  overflow: visible;
-}
-
-.login-center-image {
-  display: block;
-  width: 240px;
-  max-width: 80vw;
-  height: auto;
-  max-height: none;
-  object-fit: contain;
+  padding: 0;
+  cursor: pointer;
   flex-shrink: 0;
 }
 
-
-/* BOTTOM LOGIN BOX */
-.login-bottom-box {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: #ffffff;
-  border-radius: 28px 28px 0 0;
-  box-shadow: 0 -6px 35px rgba(0,0,0,0.08);
-  padding: 28px 24px calc(30px + env(safe-area-inset-bottom));
-  z-index: 10;
+.mithai-profile-back svg {
+  width: 23px;
+  height: 23px;
+  fill: none;
+  stroke: #111820;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-.login-subtitle {
-  font-size: 17px;
-  font-weight: 600;
-  color: #222;
-  margin: 0 0 20px;
+.mithai-profile-title {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 750;
+  color: #111820;
 }
 
-/* MOBILE INPUT */
-.mobile-input-box {
+/* PROFILE DETAILS - FULL WIDTH BACKGROUND */
+.mithai-profile-details {
+  margin-top: 110px;
+  padding: 20px;
   display: flex;
   align-items: center;
+  gap: 12px;
+
+  background: #f5f6f8;
+  font-family: Arial, sans-serif;
+
+  /* FULL SCREEN WIDTH */
+  width: 100vw;
+  max-width: none;
+  box-sizing: border-box;
+
+  /* REMOVE PARENT SIDE GAPS */
+  margin-left: calc(50% - 50vw);
+  margin-right: 0;
+}
+
+/* SMALL PROFILE CIRCLE */
+.mithai-profile-avatar {
+  width: 54px;
   height: 54px;
-  width: 100%;
-  border: 1.5px solid #e5e5e5;
-  border-radius: 12px;
-  padding: 0 15px;
+  border-radius: 50%;
+  background: #eadcfb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
 }
 
-.mobile-input-box:focus-within {
-  border-color: #ff59ae;
+/* OLD PURPLE ICON */
+.mithai-profile-avatar svg {
+  width: 64px;
+  height: 64px;
+  display: block;
+  fill: #913ad2;
+  flex-shrink: 0;
+  transform: translateY(4px);
 }
 
-.country-code {
-  font-size: 16px;
-  font-weight: 600;
-  color: #222;
-  padding-right: 12px;
-  border-right: 1px solid #ddd;
-}
-
-.mobile-input {
-  flex: 1;
+/* NAME AND PHONE */
+.mithai-profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   min-width: 0;
-  padding-left: 12px;
-  border: none;
-  outline: none;
-  font-family: 'Fredoka', sans-serif;
-  font-size: 16px;
-  background: transparent;
 }
 
-.login-error {
-  font-size: 13px;
-  color: #d32f2f;
-  margin-top: 8px;
+.mithai-profile-name {
+  font-size: 21px;
+  font-weight: 750;
+  color: #111820;
 }
 
-.login-error:empty {
-  display: none;
+.mithai-profile-phone {
+  font-size: 14px;
+  color: #657084;
 }
 
-/* TERMS TEXT */
-.login-terms {
-  margin: 18px 0 0;
-  font-family: 'Fredoka', sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  color: #888888;
-  line-height: 1.6;
-  text-align: center;
+/* THREE PROFILE BOXES */
+.mithai-profile-quick-actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  padding: 12px 16px 25px;
+  background: #f5f6f8;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  box-sizing: border-box;
 }
 
-.login-terms a {
-  color: #ff59ae;
-  font-weight: 600;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-/* NEXT BUTTON */
-.login-next-btn {
-  width: 100%;
-  height: 54px;
-  margin-top: 14px;
-  border: none;
-  border-radius: 12px;
-  background: #ff59ae;
-  color: #ffffff;
-  font-family: 'Fredoka', sans-serif;
-  font-size: 17px;
-  font-weight: 600;
+/* EACH BOX */
+.mithai-profile-action {
+  min-width: 0;
+  height: 115px;
+  background: #ffffff;
+  border: 1px solid #dce3ed;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px 5px;
   cursor: pointer;
+  font-family: Arial, sans-serif;
 }
 
-.login-next-btn:active {
+.mithai-profile-action svg {
+  width: 29px;
+  height: 29px;
+  fill: none;
+  stroke: #111820;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.mithai-profile-action span {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111820;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.mithai-profile-action:active {
+  background: #f9f5fc;
   transform: scale(0.98);
-}
-
-@media (max-height: 600px) {
-  .login-image-area {
-    top: 80px;
-    bottom: 310px;
-  }
-
-  .login-center-image {
-    width: 170px;
-  }
-
-  .login-bottom-box {
-    padding-top: 20px;
-  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- BACK BUTTON -->
-<button class="login-back-btn"
-        onclick="window.history.back()"
-        aria-label="Go back">
-  <svg viewBox="0 0 24 24">
-    <path d="M15 18L9 12L15 6"
-          stroke-linecap="round"
-          stroke-linejoin="round"/>
-  </svg>
-</button>
+<!-- HEADER -->
+<header class="mithai-profile-header">
+  <button
+    type="button"
+    class="mithai-profile-back"
+    onclick="window.history.back()"
+    aria-label="Go back"
+  >
+    <svg viewBox="0 0 24 24">
+      <path d="M15 18L9 12L15 6"/>
+    </svg>
+  </button>
 
-<!-- TOP IMAGE -->
-<div class="login-image-area">
-  <img src="subbu.webp"
-       class="login-center-image"
-       alt="MITHAI">
-</div>
+  <h1 class="mithai-profile-title">Profile</h1>
+</header>
 
-<!-- BOTTOM LOGIN BOX -->
-<div class="login-bottom-box">
+<!-- PROFILE DETAILS -->
+<div class="mithai-profile-details">
 
-  <form id="loginForm">
+  <div class="mithai-profile-avatar">
+    <svg
+      viewBox="-4 -4 72 72"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <circle cx="32" cy="23" r="14"/>
+      <path d="M5 64c2-18 13-27 27-27s25 9 27 27z"/>
+    </svg>
+  </div>
 
-    <p class="login-subtitle">
-      Enter your mobile number to continue
-    </p>
-
-    <div class="mobile-input-box">
-      <span class="country-code">+91</span>
-
-      <input
-        type="tel"
-        inputmode="numeric"
-        autocomplete="tel-national"
-        maxlength="10"
-        id="mobileNumber"
-        class="mobile-input"
-        placeholder="Mobile number"
-        required>
+  <div class="mithai-profile-info">
+    <div class="mithai-profile-name" id="profileName">
+      Your Name
     </div>
 
-    <div class="login-error" id="loginError"></div>
-
-    <!-- TERMS ABOVE NEXT BUTTON -->
-    <p class="login-terms">
-      By continuing, you agree to our
-      <a href="terms.html">Terms of Service</a>
-      and
-      <a href="privacy.html">Privacy Policy</a>
-    </p>
-
-    <button class="login-next-btn" type="submit">
-      Next
-    </button>
-
-  </form>
+    <div class="mithai-profile-phone" id="profilePhone">
+      +91 00000 00000
+    </div>
+  </div>
 
 </div>
 
-<script>
-const form = document.getElementById("loginForm");
-const mobileInput = document.getElementById("mobileNumber");
-const error = document.getElementById("loginError");
+<!-- THREE PROFILE BOXES -->
+<div class="mithai-profile-quick-actions">
 
-mobileInput.addEventListener("input", () => {
-  mobileInput.value = mobileInput.value.replace(/\D/g, "").slice(0, 10);
-  error.textContent = "";
-});
+  <!-- YOUR ORDERS -->
+  <button class="mithai-profile-action"
+          type="button"
+          onclick="window.location.href='orders.html'">
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
+    <svg viewBox="0 0 24 24">
+      <rect x="3" y="7" width="18" height="14" rx="3"/>
+      <path d="M8 7V5a4 4 0 0 1 8 0v2"/>
+    </svg>
 
-  const mobile = mobileInput.value.trim();
+    <span>Your<br>Orders</span>
+  </button>
 
-  if (!/^[6-9]\d{9}$/.test(mobile)) {
-    error.textContent = "Enter a valid 10-digit mobile number";
-    return;
-  }
+  <!-- HELP & SUPPORT -->
+  <button class="mithai-profile-action"
+          type="button"
+          onclick="window.location.href='support.html'">
 
-  error.textContent = "";
+    <svg viewBox="0 0 24 24">
+      <path d="M4 5h13a4 4 0 0 1 4 4v7a4 4 0 0 1-4 4H9l-5 3v-5a4 4 0 0 1-3-4V9a4 4 0 0 1 3-4Z"/>
+      <path d="M7 12h.01M12 12h.01M17 12h.01"/>
+    </svg>
 
-  // Connect OTP API or next page here.
-});
-</script>
+    <span>Help &amp;<br>Support</span>
+  </button>
+
+  <!-- YOUR WISHLIST -->
+  <button class="mithai-profile-action"
+          type="button"
+          onclick="window.location.href='wishlist.html'">
+
+    <svg viewBox="0 0 24 24">
+      <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/>
+    </svg>
+
+    <span>Your<br>Wishlist</span>
+  </button>
+
+</div>
 
 </body>
 </html>
