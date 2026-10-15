@@ -6,7 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MITHAI - Profile</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
 <style>
+/* PAGE */
+body {
+  margin: 0;
+  background: #f5f6f8;
+}
+
 /* FIXED HEADER */
 .mithai-profile-header {
   position: fixed;
@@ -56,28 +64,20 @@
   color: #111820;
 }
 
-/* PROFILE DETAILS - FULL WIDTH BACKGROUND */
+/* PROFILE DETAILS */
 .mithai-profile-details {
   margin-top: 110px;
   padding: 20px;
   display: flex;
   align-items: center;
   gap: 12px;
-
   background: #f5f6f8;
   font-family: Arial, sans-serif;
-
-  /* FULL SCREEN WIDTH */
-  width: 100vw;
-  max-width: none;
+  width: 100%;
   box-sizing: border-box;
-
-  /* REMOVE PARENT SIDE GAPS */
-  margin-left: calc(50% - 50vw);
-  margin-right: 0;
 }
 
-/* SMALL PROFILE CIRCLE */
+/* PROFILE CIRCLE */
 .mithai-profile-avatar {
   width: 54px;
   height: 54px;
@@ -90,7 +90,6 @@
   overflow: hidden;
 }
 
-/* OLD PURPLE ICON */
 .mithai-profile-avatar svg {
   width: 64px;
   height: 64px;
@@ -126,8 +125,7 @@
   gap: 10px;
   padding: 12px 16px 25px;
   background: #f5f6f8;
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
+  width: 100%;
   box-sizing: border-box;
 }
 
@@ -170,6 +168,79 @@
 .mithai-profile-action:active {
   background: #f9f5fc;
   transform: scale(0.98);
+}
+
+/* YOUR INFORMATION HEADING */
+.mithai-info-heading {
+  margin: 25px 0 18px 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #111820;
+  text-align: left;
+}
+
+/* INFORMATION WHITE BOX */
+.mithai-info-box {
+  margin: 0 16px 25px;
+  background: #ffffff;
+  border: 1px solid #e6e8ed;
+  border-radius: 16px;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* INFORMATION ROW */
+.mithai-info-item {
+  width: 100%;
+  min-height: 62px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 15px 16px;
+  border: none;
+  border-bottom: 1px solid #edf0f3;
+  background: #ffffff;
+  text-align: left;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.mithai-info-item:last-child {
+  border-bottom: none;
+}
+
+.mithai-info-icon {
+  width: 23px;
+  height: 23px;
+  fill: none;
+  stroke: #222936;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.mithai-info-text {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 600;
+  color: #111820;
+}
+
+.mithai-info-arrow {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: #89919e;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.mithai-info-item:active {
+  background: #f7f7f9;
 }
 </style>
 </head>
@@ -222,41 +293,115 @@
 <div class="mithai-profile-quick-actions">
 
   <!-- YOUR ORDERS -->
-  <button class="mithai-profile-action"
-          type="button"
-          onclick="window.location.href='orders.html'">
-
+  <button
+    class="mithai-profile-action"
+    type="button"
+    onclick="window.location.href='orders.html'"
+  >
     <svg viewBox="0 0 24 24">
       <rect x="3" y="7" width="18" height="14" rx="3"/>
       <path d="M8 7V5a4 4 0 0 1 8 0v2"/>
     </svg>
-
     <span>Your<br>Orders</span>
   </button>
 
   <!-- HELP & SUPPORT -->
-  <button class="mithai-profile-action"
-          type="button"
-          onclick="window.location.href='support.html'">
-
+  <button
+    class="mithai-profile-action"
+    type="button"
+    onclick="window.location.href='support.html'"
+  >
     <svg viewBox="0 0 24 24">
       <path d="M4 5h13a4 4 0 0 1 4 4v7a4 4 0 0 1-4 4H9l-5 3v-5a4 4 0 0 1-3-4V9a4 4 0 0 1 3-4Z"/>
       <path d="M7 12h.01M12 12h.01M17 12h.01"/>
     </svg>
-
     <span>Help &amp;<br>Support</span>
   </button>
 
   <!-- YOUR WISHLIST -->
-  <button class="mithai-profile-action"
-          type="button"
-          onclick="window.location.href='wishlist.html'">
-
+  <button
+    class="mithai-profile-action"
+    type="button"
+    onclick="window.location.href='wishlist.html'"
+  >
     <svg viewBox="0 0 24 24">
       <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/>
     </svg>
-
     <span>Your<br>Wishlist</span>
+  </button>
+
+</div>
+<!-- THREE BOXES END -->
+
+<!-- YOUR INFORMATION HEADING -->
+<h2 class="mithai-info-heading">
+  Your Information
+</h2>
+
+<!-- YOUR INFORMATION OPTIONS -->
+<div class="mithai-info-box">
+
+  <!-- REFER & EARN -->
+  <button class="mithai-info-item" type="button">
+    <svg class="mithai-info-icon" viewBox="0 0 24 24">
+      <rect x="3" y="8" width="18" height="13" rx="2"/>
+      <path d="M12 8v13M3 12h18"/>
+      <path d="M12 8C7 8 5 6 6 4s5-1 6 4ZM12 8c5 0 7-2 6-4s-5-1-6 4Z"/>
+    </svg>
+    <span class="mithai-info-text">Refer &amp; Earn</span>
+    <svg class="mithai-info-arrow" viewBox="0 0 24 24">
+      <path d="m9 18 6-6-6-6"/>
+    </svg>
+  </button>
+
+  <!-- YOUR REFUNDS -->
+  <button class="mithai-info-item" type="button">
+    <svg class="mithai-info-icon" viewBox="0 0 24 24">
+      <path d="M3 11a9 9 0 1 1 2.5 6.2"/>
+      <path d="M3 4v7h7"/>
+      <path d="M12 7v10M15 9h-4a2 2 0 0 0 0 4h2a2 2 0 0 1 0 4H9"/>
+    </svg>
+    <span class="mithai-info-text">Your Refunds</span>
+    <svg class="mithai-info-arrow" viewBox="0 0 24 24">
+      <path d="m9 18 6-6-6-6"/>
+    </svg>
+  </button>
+
+  <!-- YOUR WISHLIST -->
+  <button class="mithai-info-item" type="button">
+    <svg class="mithai-info-icon" viewBox="0 0 24 24">
+      <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/>
+    </svg>
+    <span class="mithai-info-text">Your Wishlist</span>
+    <svg class="mithai-info-arrow" viewBox="0 0 24 24">
+      <path d="m9 18 6-6-6-6"/>
+    </svg>
+  </button>
+
+  <!-- HELP & SUPPORT -->
+  <button class="mithai-info-item" type="button">
+    <svg class="mithai-info-icon" viewBox="0 0 24 24">
+      <path d="M4 12a8 8 0 0 1 16 0"/>
+      <rect x="2" y="11" width="4" height="7" rx="2"/>
+      <rect x="18" y="11" width="4" height="7" rx="2"/>
+      <path d="M20 18a5 5 0 0 1-5 4h-3"/>
+    </svg>
+    <span class="mithai-info-text">Help &amp; Support</span>
+    <svg class="mithai-info-arrow" viewBox="0 0 24 24">
+      <path d="m9 18 6-6-6-6"/>
+    </svg>
+  </button>
+
+  <!-- SAVED ADDRESSES -->
+  <button class="mithai-info-item" type="button">
+    <svg class="mithai-info-icon" viewBox="0 0 24 24">
+      <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/>
+      <circle cx="12" cy="10" r="2.5"/>
+    </svg>
+    <span class="mithai-info-text">Saved Addresses</span>
+    <svg class="mithai-info-arrow" viewBox="0 0 24 24">
+      <path d="m9 18 6-6-6-6"/>
+    </svg>
   </button>
 
 </div>
