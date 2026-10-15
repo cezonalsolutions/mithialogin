@@ -410,7 +410,109 @@ body {
     </svg>
   </button>
 
+<!-- EDIT PROFILE -->
+<button
+  class="mithai-info-item"
+  type="button"
+  onclick="window.location.href='edit-profile.html'"
+>
+  <svg class="mithai-info-icon" viewBox="0 0 24 24">
+    <circle cx="12" cy="8" r="4"/>
+    <path d="M4 21c0-4.5 3.5-7 8-7 1.5 0 2.8.3 4 1"/>
+    <path d="m16 19 4-4 2 2-4 4-3 1z"/>
+  </svg>
+
+  <span class="mithai-info-text">Edit Profile</span>
+
+  <svg class="mithai-info-arrow" viewBox="0 0 24 24">
+    <path d="m9 18 6-6-6-6"/>
+  </svg>
+</button>
+
 </div>
+
+<!-- OTHER INFORMATION HEADING -->
+<h2 class="mithai-info-heading">
+  Other Information
+</h2>
+
+<!-- OTHER INFORMATION BOX -->
+<div class="mithai-info-box">
+
+  <!-- SUGGEST PRODUCTS -->
+
+<button class="mithai-info-item" type="button">
+  <svg class="mithai-info-icon" viewBox="0 0 24 24">
+    <path d="m12 2 3.1 6.3 7 1-5.1 5 .9 7-5.9-3.3-5.9 3.3.9-7-5.1-5 7-1z"/>
+  </svg>
+
+  <span class="mithai-info-text">Suggest Products</span>
+
+  <svg class="mithai-info-arrow" viewBox="0 0 24 24">
+    <path d="m9 18 6-6-6-6"/>
+  </svg>
+</button>
+
+
+  <!-- NOTIFICATIONS -->
+  <button class="mithai-info-item" type="button">
+    <svg class="mithai-info-icon" viewBox="0 0 24 24">
+      <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/>
+      <path d="M10 21h4"/>
+    </svg>
+
+    <span class="mithai-info-text">
+      Notifications
+    </span>
+
+    <svg class="mithai-info-arrow" viewBox="0 0 24 24">
+      <path d="m9 18 6-6-6-6"/>
+    </svg>
+  </button>
+
+  <!-- GENERAL INFO -->
+  <button class="mithai-info-item" type="button">
+    <svg class="mithai-info-icon" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M12 11v6"/>
+      <path d="M12 7h.01"/>
+    </svg>
+
+    <span class="mithai-info-text">
+      General Info
+    </span>
+
+    <svg class="mithai-info-arrow" viewBox="0 0 24 24">
+      <path d="m9 18 6-6-6-6"/>
+    </svg>
+  </button>
+
+</div>
+
+<style>
+.mithai-logout-btn {
+  width: calc(100% - 32px);
+  margin: 5px 16px 30px;
+  padding: 17px 18px;
+  background: #ffffff;
+  border: 1px solid #e6e8ed;
+  border-radius: 14px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111820;
+  text-align: center;
+}
+
+.mithai-logout-btn:active {
+  background: #f5f6f8;
+}
+</style>
+
+<button class="mithai-logout-btn" type="button">
+  Log Out
+</button>
 
 </body>
 </html>
