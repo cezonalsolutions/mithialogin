@@ -4,515 +4,318 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MITHAI - Profile</title>
+<title>Free Delivery + Cart</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
-/* PAGE */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  background: #f5f6f8;
-}
-
-/* FIXED HEADER */
-.mithai-profile-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 110px;
-  padding: 35px 18px 0;
-  display: flex;
-  align-items: center;
-  gap: 14px;
+  font-family: Arial, sans-serif;
   background: #ffffff;
-  border-bottom: 1px solid #e0e5ec;
-  box-sizing: border-box;
-  z-index: 9999;
 }
 
-.mithai-profile-back {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #dce3ed;
-  border-radius: 50%;
-  background: white;
+/* BOTH BARS */
+.deliveryCartRow {
+  width: calc(100% - 32px);
+  margin: 25px 16px 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  cursor: pointer;
-  flex-shrink: 0;
+  align-items: stretch;
+  gap: 8px;
 }
 
-.mithai-profile-back svg {
-  width: 23px;
-  height: 23px;
-  fill: none;
-  stroke: #111820;
-  stroke-width: 2.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.mithai-profile-title {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  font-size: 22px;
-  font-weight: 750;
-  color: #111820;
-}
-
-/* PROFILE DETAILS */
-.mithai-profile-details {
-  margin-top: 110px;
-  padding: 20px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: #f5f6f8;
-  font-family: Arial, sans-serif;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* PROFILE CIRCLE */
-.mithai-profile-avatar {
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  background: #eadcfb;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  overflow: hidden;
-}
-
-.mithai-profile-avatar svg {
-  width: 64px;
-  height: 64px;
-  display: block;
-  fill: #913ad2;
-  flex-shrink: 0;
-  transform: translateY(4px);
-}
-
-/* NAME AND PHONE */
-.mithai-profile-info {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+/* ORIGINAL GREEN DELIVERY DESIGN */
+.deliveryFloatBar {
+  flex: 1;
   min-width: 0;
-}
-
-.mithai-profile-name {
-  font-size: 21px;
-  font-weight: 750;
-  color: #111820;
-}
-
-.mithai-profile-phone {
-  font-size: 14px;
-  color: #657084;
-}
-
-/* THREE PROFILE BOXES */
-.mithai-profile-quick-actions {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-  padding: 12px 16px 25px;
-  background: #f5f6f8;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-/* EACH BOX */
-.mithai-profile-action {
-  min-width: 0;
-  height: 115px;
-  background: #ffffff;
-  border: 1px solid #dce3ed;
-  border-radius: 14px;
+  min-height: 65px;
+  padding: 12px 16px;
+  background: #087f5b;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 10px 5px;
-  cursor: pointer;
-  font-family: Arial, sans-serif;
-}
-
-.mithai-profile-action svg {
-  width: 29px;
-  height: 29px;
-  fill: none;
-  stroke: #111820;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  flex-shrink: 0;
-}
-
-.mithai-profile-action span {
-  font-size: 14px;
-  font-weight: 700;
-  color: #111820;
-  text-align: center;
-  line-height: 1.4;
-}
-
-.mithai-profile-action:active {
-  background: #f9f5fc;
-  transform: scale(0.98);
-}
-
-/* YOUR INFORMATION HEADING */
-
-.mithai-profile-quick-actions {
-  padding-bottom: 8px;
-}
-
-.mithai-info-heading {
-  margin: 8px 0 18px 20px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  color: #111820;
-  text-align: left;
-}
-
-
-/* INFORMATION WHITE BOX */
-.mithai-info-box {
-  margin: 0 16px 25px;
-  background: #ffffff;
-  border: 1px solid #e6e8ed;
   border-radius: 16px;
   overflow: hidden;
-  font-family: 'Poppins', sans-serif;
 }
 
-/* INFORMATION ROW */
-.mithai-info-item {
-  width: 100%;
-  min-height: 62px;
+/* DELIVERY ICON */
+.deliveryIcon {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.12);
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 15px 16px;
-  border: none;
-  border-bottom: 1px solid #edf0f3;
-  background: #ffffff;
-  text-align: left;
-  cursor: pointer;
-  box-sizing: border-box;
-}
-
-.mithai-info-item:last-child {
-  border-bottom: none;
-}
-
-.mithai-info-icon {
-  width: 23px;
-  height: 23px;
-  fill: none;
-  stroke: #222936;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  justify-content: center;
+  margin-right: 15px;
   flex-shrink: 0;
 }
 
-.mithai-info-text {
-  flex: 1;
-  font-size: 13px;
-  font-weight: 600;
-  color: #111820;
+.deliveryIcon i {
+  color: #ffffff;
+  font-size: 15px;
 }
 
-.mithai-info-arrow {
-  width: 18px;
-  height: 18px;
+/* PROGRESS RING */
+.freeProgressRing {
+  position: absolute;
+  inset: -5px;
+  width: 44px;
+  height: 44px;
+  transform: rotate(-90deg);
+}
+
+.freeProgressRing circle {
   fill: none;
-  stroke: #89919e;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  stroke-width: 4;
 }
 
-.mithai-info-item:active {
-  background: #f7f7f9;
+.ringBg {
+  stroke: rgba(255,255,255,.16);
+}
+
+.ringFill {
+  stroke: #ffffff;
+  stroke-linecap: round;
+  stroke-dasharray: 94.25;
+  stroke-dashoffset: 94.25;
+  transition: stroke-dashoffset .35s ease;
+}
+
+/* DELIVERY TEXT */
+.deliveryText {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.deliveryTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.15;
+}
+
+.deliverySub {
+  margin-top: 3px;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255,255,255,.78);
+  line-height: 1.2;
+}
+
+/* PINK CART */
+.pinkCartBar {
+  width: 115px;
+  flex: 0 0 115px;
+  min-height: 65px;
+  padding: 8px;
+  background: #E82B65;
+  color: #ffffff;
+  border: none;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.pinkCartBar:active {
+  opacity: 0.9;
+}
+
+.pinkCartIcon {
+  font-size: 25px;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.pinkCartText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  white-space: nowrap;
+}
+
+.pinkCartTitle {
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.pinkCartCount {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* SMALL MOBILE */
+@media (max-width: 380px) {
+  .deliveryCartRow {
+    width: calc(100% - 20px);
+    margin: 25px 10px 0;
+    gap: 6px;
+  }
+
+  .deliveryFloatBar {
+    padding: 10px;
+  }
+
+  .deliveryIcon {
+    margin-right: 12px;
+  }
+
+  .deliveryTitle {
+    font-size: 12px;
+  }
+
+  .deliverySub {
+    font-size: 10px;
+  }
+
+  .pinkCartBar {
+    width: 98px;
+    flex-basis: 98px;
+    gap: 6px;
+    padding: 6px;
+  }
+
+  .pinkCartIcon {
+    font-size: 21px;
+  }
+
+  .pinkCartTitle {
+    font-size: 14px;
+  }
+
+  .pinkCartCount {
+    font-size: 10px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header class="mithai-profile-header">
-  <button
-    type="button"
-    class="mithai-profile-back"
-    onclick="window.history.back()"
-    aria-label="Go back"
-  >
-    <svg viewBox="0 0 24 24">
-      <path d="M15 18L9 12L15 6"/>
-    </svg>
-  </button>
+<!-- FREE DELIVERY + PINK CART -->
+<div class="deliveryCartRow">
 
-  <h1 class="mithai-profile-title">Profile</h1>
-</header>
+  <!-- GREEN DELIVERY -->
+  <div class="deliveryFloatBar" id="mithaiFreeDeliveryBar">
 
-<!-- PROFILE DETAILS -->
-<div class="mithai-profile-details">
+    <div class="deliveryIcon">
+      <i class="fa-solid fa-person-biking"></i>
 
-  <div class="mithai-profile-avatar">
-    <svg
-      viewBox="-4 -4 72 72"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <circle cx="32" cy="23" r="14"/>
-      <path d="M5 64c2-18 13-27 27-27s25 9 27 27z"/>
-    </svg>
-  </div>
+      <svg class="freeProgressRing" viewBox="0 0 36 36">
+        <circle class="ringBg"
+                cx="18" cy="18" r="15"></circle>
 
-  <div class="mithai-profile-info">
-    <div class="mithai-profile-name" id="profileName">
-      Your Name
+        <circle class="ringFill"
+                id="freeDeliveryRing"
+                cx="18" cy="18" r="15"></circle>
+      </svg>
     </div>
 
-    <div class="mithai-profile-phone" id="profilePhone">
-      +91 00000 00000
+    <div class="deliveryText">
+      <div class="deliveryTitle">
+        Popular around your area
+      </div>
+
+      <div class="deliverySub">
+        Shop for ₹200 to unlock free delivery
+      </div>
     </div>
+
   </div>
 
-</div>
+  <!-- PINK CART -->
+  <button class="pinkCartBar"
+          type="button"
+          onclick="openMithaiCart()">
 
-<!-- THREE PROFILE BOXES -->
-<div class="mithai-profile-quick-actions">
+    <i class="fa-solid fa-basket-shopping pinkCartIcon"></i>
 
-  <!-- YOUR ORDERS -->
-  <button
-    class="mithai-profile-action"
-    type="button"
-    onclick="window.location.href='orders.html'"
-  >
-    <svg viewBox="0 0 24 24">
-      <rect x="3" y="7" width="18" height="14" rx="3"/>
-      <path d="M8 7V5a4 4 0 0 1 8 0v2"/>
-    </svg>
-    <span>Your<br>Orders</span>
-  </button>
+    <div class="pinkCartText">
+      <span class="pinkCartTitle">Cart</span>
+      <span class="pinkCartCount" id="pinkCartCount">
+        0 items
+      </span>
+    </div>
 
-  <!-- HELP & SUPPORT -->
-  <button
-    class="mithai-profile-action"
-    type="button"
-    onclick="window.location.href='support.html'"
-  >
-    <svg viewBox="0 0 24 24">
-      <path d="M4 5h13a4 4 0 0 1 4 4v7a4 4 0 0 1-4 4H9l-5 3v-5a4 4 0 0 1-3-4V9a4 4 0 0 1 3-4Z"/>
-      <path d="M7 12h.01M12 12h.01M17 12h.01"/>
-    </svg>
-    <span>Help &amp;<br>Support</span>
-  </button>
-
-  <!-- YOUR WISHLIST -->
-  <button
-    class="mithai-profile-action"
-    type="button"
-    onclick="window.location.href='wishlist.html'"
-  >
-    <svg viewBox="0 0 24 24">
-      <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/>
-    </svg>
-    <span>Your<br>Wishlist</span>
-  </button>
-
-</div>
-<!-- THREE BOXES END -->
-
-<!-- YOUR INFORMATION HEADING -->
-<h2 class="mithai-info-heading">
-  Your Information
-</h2>
-
-<!-- YOUR INFORMATION OPTIONS -->
-<div class="mithai-info-box">
-
-  <!-- REFER & EARN -->
-  <button class="mithai-info-item" type="button">
-    <svg class="mithai-info-icon" viewBox="0 0 24 24">
-      <rect x="3" y="8" width="18" height="13" rx="2"/>
-      <path d="M12 8v13M3 12h18"/>
-      <path d="M12 8C7 8 5 6 6 4s5-1 6 4ZM12 8c5 0 7-2 6-4s-5-1-6 4Z"/>
-    </svg>
-    <span class="mithai-info-text">Refer &amp; Earn</span>
-    <svg class="mithai-info-arrow" viewBox="0 0 24 24">
-      <path d="m9 18 6-6-6-6"/>
-    </svg>
-  </button>
-
-  <!-- YOUR REFUNDS -->
-  <button class="mithai-info-item" type="button">
-    <svg class="mithai-info-icon" viewBox="0 0 24 24">
-      <path d="M3 11a9 9 0 1 1 2.5 6.2"/>
-      <path d="M3 4v7h7"/>
-      <path d="M12 7v10M15 9h-4a2 2 0 0 0 0 4h2a2 2 0 0 1 0 4H9"/>
-    </svg>
-    <span class="mithai-info-text">Your Refunds</span>
-    <svg class="mithai-info-arrow" viewBox="0 0 24 24">
-      <path d="m9 18 6-6-6-6"/>
-    </svg>
-  </button>
-
-  <!-- YOUR WISHLIST -->
-  <button class="mithai-info-item" type="button">
-    <svg class="mithai-info-icon" viewBox="0 0 24 24">
-      <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/>
-    </svg>
-    <span class="mithai-info-text">Your Wishlist</span>
-    <svg class="mithai-info-arrow" viewBox="0 0 24 24">
-      <path d="m9 18 6-6-6-6"/>
-    </svg>
-  </button>
-
-  <!-- HELP & SUPPORT -->
-  <button class="mithai-info-item" type="button">
-    <svg class="mithai-info-icon" viewBox="0 0 24 24">
-      <path d="M4 12a8 8 0 0 1 16 0"/>
-      <rect x="2" y="11" width="4" height="7" rx="2"/>
-      <rect x="18" y="11" width="4" height="7" rx="2"/>
-      <path d="M20 18a5 5 0 0 1-5 4h-3"/>
-    </svg>
-    <span class="mithai-info-text">Help &amp; Support</span>
-    <svg class="mithai-info-arrow" viewBox="0 0 24 24">
-      <path d="m9 18 6-6-6-6"/>
-    </svg>
-  </button>
-
-  <!-- SAVED ADDRESSES -->
-  <button class="mithai-info-item" type="button">
-    <svg class="mithai-info-icon" viewBox="0 0 24 24">
-      <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/>
-      <circle cx="12" cy="10" r="2.5"/>
-    </svg>
-    <span class="mithai-info-text">Saved Addresses</span>
-    <svg class="mithai-info-arrow" viewBox="0 0 24 24">
-      <path d="m9 18 6-6-6-6"/>
-    </svg>
-  </button>
-
-<!-- EDIT PROFILE -->
-<button
-  class="mithai-info-item"
-  type="button"
-  onclick="window.location.href='edit-profile.html'"
->
-  <svg class="mithai-info-icon" viewBox="0 0 24 24">
-    <circle cx="12" cy="8" r="4"/>
-    <path d="M4 21c0-4.5 3.5-7 8-7 1.5 0 2.8.3 4 1"/>
-    <path d="m16 19 4-4 2 2-4 4-3 1z"/>
-  </svg>
-
-  <span class="mithai-info-text">Edit Profile</span>
-
-  <svg class="mithai-info-arrow" viewBox="0 0 24 24">
-    <path d="m9 18 6-6-6-6"/>
-  </svg>
-</button>
-
-</div>
-
-<!-- OTHER INFORMATION HEADING -->
-<h2 class="mithai-info-heading">
-  Other Information
-</h2>
-
-<!-- OTHER INFORMATION BOX -->
-<div class="mithai-info-box">
-
-  <!-- SUGGEST PRODUCTS -->
-
-<button class="mithai-info-item" type="button">
-  <svg class="mithai-info-icon" viewBox="0 0 24 24">
-    <path d="m12 2 3.1 6.3 7 1-5.1 5 .9 7-5.9-3.3-5.9 3.3.9-7-5.1-5 7-1z"/>
-  </svg>
-
-  <span class="mithai-info-text">Suggest Products</span>
-
-  <svg class="mithai-info-arrow" viewBox="0 0 24 24">
-    <path d="m9 18 6-6-6-6"/>
-  </svg>
-</button>
-
-
-  <!-- NOTIFICATIONS -->
-  <button class="mithai-info-item" type="button">
-    <svg class="mithai-info-icon" viewBox="0 0 24 24">
-      <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/>
-      <path d="M10 21h4"/>
-    </svg>
-
-    <span class="mithai-info-text">
-      Notifications
-    </span>
-
-    <svg class="mithai-info-arrow" viewBox="0 0 24 24">
-      <path d="m9 18 6-6-6-6"/>
-    </svg>
-  </button>
-
-  <!-- GENERAL INFO -->
-  <button class="mithai-info-item" type="button">
-    <svg class="mithai-info-icon" viewBox="0 0 24 24">
-      <circle cx="12" cy="12" r="9"/>
-      <path d="M12 11v6"/>
-      <path d="M12 7h.01"/>
-    </svg>
-
-    <span class="mithai-info-text">
-      General Info
-    </span>
-
-    <svg class="mithai-info-arrow" viewBox="0 0 24 24">
-      <path d="m9 18 6-6-6-6"/>
-    </svg>
   </button>
 
 </div>
 
-<style>
-.mithai-logout-btn {
-  width: calc(100% - 32px);
-  margin: 5px 16px 30px;
-  padding: 17px 18px;
-  background: #ffffff;
-  border: 1px solid #e6e8ed;
-  border-radius: 14px;
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  color: #111820;
-  text-align: center;
+<script>
+const FREE_DELIVERY_TARGET = 200;
+
+function updateFreeDeliveryProgress(cartTotal) {
+
+  const total = Math.max(0, Number(cartTotal) || 0);
+  const pending = Math.max(FREE_DELIVERY_TARGET - total, 0);
+
+  const ring = document.getElementById("freeDeliveryRing");
+  const title = document.querySelector(".deliveryTitle");
+  const sub = document.querySelector(".deliverySub");
+
+  const progress = Math.min(total / FREE_DELIVERY_TARGET, 1);
+
+  if (ring) {
+    ring.style.strokeDashoffset = 94.25 * (1 - progress);
+  }
+
+  if (title && sub) {
+    if (total >= FREE_DELIVERY_TARGET) {
+      title.innerText = "Free Delivery Unlocked";
+      sub.innerText = "Your order is eligible for free delivery";
+    } else {
+      title.innerText = "Popular around your area";
+      sub.innerText =
+        `Shop for ₹${pending} to unlock free delivery`;
+    }
+  }
 }
 
-.mithai-logout-btn:active {
-  background: #f5f6f8;
-}
-</style>
+/* UPDATE CART ITEM COUNT */
+function updatePinkCartCount(count) {
+  const quantity = Math.max(0, Math.floor(Number(count) || 0));
+  const el = document.getElementById("pinkCartCount");
 
-<button class="mithai-logout-btn" type="button">
-  Log Out
-</button>
+  if (el) {
+    el.textContent =
+      quantity + (quantity === 1 ? " item" : " items");
+  }
+}
+
+/* CART CLICK */
+function openMithaiCart() {
+  // Connect your existing cart opening function here.
+  if (typeof window.openCart === "function") {
+    window.openCart();
+  }
+}
+
+/* INITIAL VALUES */
+updateFreeDeliveryProgress(0);
+updatePinkCartCount(0);
+
+/* EXAMPLES:
+updateFreeDeliveryProgress(150);
+updatePinkCartCount(1);
+
+updateFreeDeliveryProgress(250);
+updatePinkCartCount(17);
+*/
+</script>
 
 </body>
 </html>
